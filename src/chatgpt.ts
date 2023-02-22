@@ -95,23 +95,23 @@ export class ChatGPTPool {
     
     const http = require('http');
 
-    http.get('http://www.google.com', (res) => {
+    http.get('http://www.google.com', (res : any) => {
       console.log(`google statusCode: ${res.statusCode}`);
 
-      res.on('data', (data) => {
+      res.on('data', (data : any) => {
         //console.log(data.toString());
       });
-    }).on('error', (err) => {
+    }).on('error', (err : any) => {
       console.error(err);
     });
     
-    http.get('http://www.baidu.com', (res) => {
+    http.get('http://www.baidu.com', (res : any) => {
       console.log(`baidu statusCode: ${res.statusCode}`);
 
-      res.on('data', (data) => {
+      res.on('data', (data : any) => {
         //console.log(data.toString());
       });
-    }).on('error', (err) => {
+    }).on('error', (err : any) => {
       console.error(err);
     });
 
