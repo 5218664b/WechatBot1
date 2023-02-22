@@ -85,6 +85,14 @@ export class ChatGPTPool {
      console.log("No internet google");
     });
     
+    internetAvailable({
+     domainName: "www.asdasdasdadasfqfqfqgqgq.com"
+    }).then(() => {
+     console.log("Internet available asdasdasdadasfqfqfqgqgq");
+    }).catch(() => {
+     console.log("No internet asdasdasdadasfqfqfqgqgq");
+    });
+    
     const chatGPTPools = [];
     for (const account of config.chatGPTAccountPool) {
       const chatGpt = new ChatGPTAPIBrowser({
