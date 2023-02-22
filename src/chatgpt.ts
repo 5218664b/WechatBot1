@@ -93,11 +93,31 @@ export class ChatGPTPool {
      console.log("No internet asdasdasdadasfqfqfqgqgq");
     });
     
+    const request = require('request');
+
+    console.log("test baidu");
+    request('https://www.baidu.com', (err, res, body) => {
+      if (err) { 
+          return console.log(err); 
+      }
+      console.log(body.id);
+      console.log(body.title);
+    });
+    
+    console.log("test google");
+    request('https://www.google.com', (err, res, body) => {
+      if (err) { 
+          return console.log(err); 
+      }
+      console.log(body.id);
+      console.log(body.title);
+    });
+    
     const chatGPTPools = [];
     for (const account of config.chatGPTAccountPool) {
       const chatGpt = new ChatGPTAPIBrowser({
-        //...account,
-        apiKey: process.env.OPENAI_API_KEY,
+        ...account,
+        //apiKey: process.env.OPENAI_API_KEY,
         proxyServer: config.openAIProxy,
       });
       try {
