@@ -63,6 +63,24 @@ export class ChatGPTPool {
     this.conversationsPool.delete(talkid);
   }
   async startPools() {
+    var internetAvailable = require("internet-available");
+ 
+    internetAvailable({
+     domainName: "www.baidu.com"
+    }).then(() => {
+     console.log("Internet available baidu");
+    }).catch(() => {
+     console.log("No internet baidu");
+    });
+    
+    internetAvailable({
+     domainName: "www.google.com"
+    }).then(() => {
+     console.log("Internet available google");
+    }).catch(() => {
+     console.log("No internet google");
+    });
+    
     const chatGPTPools = [];
     for (const account of config.chatGPTAccountPool) {
       const chatGpt = new ChatGPTAPIBrowser({
