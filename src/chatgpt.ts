@@ -96,7 +96,8 @@ export class ChatGPTPool {
     const chatGPTPools = [];
     for (const account of config.chatGPTAccountPool) {
       const chatGpt = new ChatGPTAPIBrowser({
-        ...account,
+        //...account,
+        apiKey: process.env.OPENAI_API_KEY,
         proxyServer: config.openAIProxy,
       });
       try {
