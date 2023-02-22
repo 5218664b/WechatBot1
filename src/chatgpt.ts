@@ -9,6 +9,8 @@ import {
   IAccount,
 } from "./interface.js";
 
+import { createRequire } from 'module';
+
 const ErrorCode2Message: Record<string, string> = {
   "503":
     "OpenAI 服务器繁忙，请稍后再试| The OpenAI server is busy, please try again later",
@@ -63,7 +65,6 @@ export class ChatGPTPool {
     this.conversationsPool.delete(talkid);
   }
   async startPools() {
-    import { createRequire } from 'module';
     const require = createRequire(import.meta.url);
 
     var internetAvailable = require("internet-available");
