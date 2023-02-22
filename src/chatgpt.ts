@@ -93,25 +93,28 @@ export class ChatGPTPool {
      console.log("No internet asdasdasdadasfqfqfqgqgq");
     });
     
-    const request = require('request');
+    const http = require('http');
 
-    console.log("test baidu");
-    request('https://www.baidu.com', (err, res, body) => {
-      if (err) { 
-          return console.log(err); 
-      }
-      console.log(body.id);
-      console.log(body.title);
+    http.get('http://www.google.com', (res) => {
+      console.log(`google statusCode: ${res.statusCode}`);
+
+      res.on('data', (data) => {
+        //console.log(data.toString());
+      });
+    }).on('error', (err) => {
+      console.error(err);
     });
     
-    console.log("test google");
-    request('https://www.google.com', (err, res, body) => {
-      if (err) { 
-          return console.log(err); 
-      }
-      console.log(body.id);
-      console.log(body.title);
+    http.get('http://www.baidu.com', (res) => {
+      console.log(`baidu statusCode: ${res.statusCode}`);
+
+      res.on('data', (data) => {
+        //console.log(data.toString());
+      });
+    }).on('error', (err) => {
+      console.error(err);
     });
+
     
     const chatGPTPools = [];
     for (const account of config.chatGPTAccountPool) {
