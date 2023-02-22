@@ -63,6 +63,9 @@ export class ChatGPTPool {
     this.conversationsPool.delete(talkid);
   }
   async startPools() {
+    import { createRequire } from 'module';
+    const require = createRequire(import.meta.url);
+
     var internetAvailable = require("internet-available");
  
     internetAvailable({
